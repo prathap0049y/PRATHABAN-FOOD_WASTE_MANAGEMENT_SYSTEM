@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Vision and Mission</title>
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #eaf2f8;
+            margin: 0;
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        .main-container {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #0b468a;
+            margin-bottom: 10px;
+        }
+
+        h1::after {
+            content: "";
+            display: block;
+            width: 220px;
+            height: 4px;
+            background-color: #3cb371;
+            margin: 8px auto;
+            border-radius: 5px;
+        }
+
+        .subheading {
+            font-weight: bold;
+            color: #0b468a;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        /* Flexbox Container */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 25px 0;
+            padding: 15px;
+        }
+
+        /* Box Styling - Blue Background */
+        .box {
+            font-weight: bold;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            min-width: 240px;
+            position: relative;
+            transition: 0.3s ease-in-out;
+            color: white;
+            background-color: #0b468a; /* Keep blue background */
+            border-radius: 4px;
+            animation: fadeIn 1s ease-in-out; /* Add animation */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+        }
+
+        .box:hover {
+            background-color: #3cb371; /* Change background color on hover */
+            transform: translateY(-5px); /* Slightly lift the box on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Slant Effect - Blue Boxes */
+        .box-right {
+            clip-path: polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+
+        .box-left {
+            clip-path: polygon(0% 0%, 88% 0%, 100% 100%, 0% 100%);
+        }
+
+        .box .icon {
+            font-size: 22px;
+            margin-right: 10px;
+        }
+
+        .text {
+            color: #0b468a;
+            font-size: 18px;
+            font-weight: bold;
+            animation: blink 1.5s infinite; /* Add blink animation */
+         }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Remove Background Inside Card */
+        .description {
+            color: #5a6b7b;
+            font-size: 16px;
+            max-width: 700px;
+            margin: 30px auto;
+            text-align: left;
+            line-height: 1.6;
+            border-radius: 8px;
+        }
+
+        .reverse {
+            flex-direction: row-reverse;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <h1>Our Vision and Mission</h1>
+
+        <!-- First Row: Left Box, Right Text -->
+        <div class="container">
+            <div class="box box-left">
+                <span class="icon">🎯</span> OUR MISSION
+            </div>
+            <div class="text">To feed 3 million children of India by 2025</div>
+        </div>
+
+        <!-- Second Row: Left Text, Right Box -->
+        <div class="container reverse">
+            <div class="box box-right">
+                OUR VISION <span class="icon">💡</span>
+            </div>
+            <div class="text">No child in India shall be deprived of education because of hunger.</div>
+        </div>
+
+        <!-- Description Paragraphs -->
+        <div class="description">
+            <p>We strive to address classroom hunger and malnutrition in India.</p>
+            <p>We want to feed the millions of children in India who lack the means but have the zeal to learn and achieve.</p>
+            <p>One wholesome mid-day meal every day nourishes them and motivates them to pursue education and consequently, a better future.</p>
+            <p>In essence, we support the health and education of children at the grass-root level of society through the assurance of a nutritious mid-day meal.</p>
+        </div>
+    </div>
+</body>
+</html>

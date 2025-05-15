@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Donation Form</title>
+    <link rel="stylesheet" href="donate.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Food Donation Form</h2>
+    
+    <form action="submit_donation.php" method="POST" enctype="multipart/form-data">
+        <label>Donor Name:</label>
+        <input type="text" name="donor_name" placeholder="Enter your name" required>
+
+        <label>Phone Number:</label>
+        <input type="tel" name="phone" placeholder="Enter your phone number" required>
+
+        <label>Location:</label>
+        <input type="text" name="location" placeholder="Your address or pickup point" required>
+
+        <label>Type of Food:</label>
+        <select name="food_type" required>
+            <option value="">Select food type</option>
+            <option value="Cooked Meal">Cooked Meal</option>
+            <option value="Packed Food">Packed Food</option>
+            <option value="Fruits & Vegetables">Fruits & Vegetables</option>
+            <option value="Bakery Items">Bakery Items</option>
+        </select>
+
+        <label>Quantity (Number of Meals):</label>
+        <input type="number" name="quantity" placeholder="Enter number of meals" required>
+
+        <label>Food Expiry Time:</label>
+        <input type="datetime-local" name="expiry_time" required>
+
+        <label>Food Storage Condition:</label>
+        <select name="storage_condition" required>
+            <option value="">Select storage condition</option>
+            <option value="Refrigeration Needed">Refrigeration Needed</option>
+            <option value="Dry Storage">Dry Storage</option>
+            <option value="Frozen">Frozen</option>
+        </select>
+
+        <label>Estimated Pickup Time:</label>
+        <input type="datetime-local" name="pickup_time" required>
+
+        <!-- Upload Image Button -->
+        <button type="button" id="openModal">Upload Food Images</button>
+
+        <!-- Image Upload Modal -->
+        <div id="imageModal" class="modale">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Upload Food Images (for Quality Check):</h3>
+
+                <label>Close-up of the food (to check freshness):</label>
+                <input type="file" name="food_image1" accept="image/*" required>
+
+                <label>Full plate/container view (to ensure quantity matches):</label>
+                <input type="file" name="food_image2" accept="image/*" required>
+
+                <label>Packaging image (to verify hygiene):</label>
+                <input type="file" name="food_image3" accept="image/*" required>
+            </div>
+        </div>
+
+        <label>Additional Notes (Optional):</label>
+        <textarea name="notes" placeholder="Mention special handling instructions"></textarea>
+
+        <label>
+            <input type="checkbox" name="agreement" required> I confirm that the food is fresh, safe, and suitable for donation.
+        </label>
+
+        <button type="submit">Donate Food</button>
+    </form>
+
+    <p class="warning">
+        ⚠️ <strong>WARNING:</strong> Providing false information or unsafe food may result in legal action under **Section 269 & 273 of IPC**.
+    </p>
+</div>
+
+<script>
+    // Open and close modal for image upload
+    document.getElementById("openModal").onclick = function() {
+        document.getElementById("imageModal").style.display = "block";
+    };
+
+    document.querySelector(".close").onclick = function() {
+        document.getElementById("imageModal").style.display = "none";
+    };
+
+    window.onclick = function(event) {
+        if (event.target == document.getElementById("imageModal")) {
+            document.getElementById("imageModal").style.display = "none";
+        }
+    };
+</script>
+
+</body>
+</html>

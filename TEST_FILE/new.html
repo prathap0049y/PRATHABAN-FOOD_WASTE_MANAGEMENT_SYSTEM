@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Donation Flowchart</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        svg {
+            width: 90%;
+            height: auto;
+        }
+        .process {
+            fill: #1e90ff;
+            stroke: black;
+            stroke-width: 2px;
+        }
+        .decision {
+            fill: #ff6347;
+            stroke: black;
+            stroke-width: 2px;
+        }
+        .startstop {
+            fill: #32cd32;
+            stroke: black;
+            stroke-width: 2px;
+        }
+        text {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            text-anchor: middle;
+            fill: white;
+        }
+    </style>
+</head>
+<body>
+
+<svg viewBox="0 0 500 900">
+    <!-- Start -->
+    <rect x="175" y="10" width="150" height="40" class="startstop"/>
+    <text x="250" y="35">Start</text>
+
+    <!-- User Registers -->
+    <rect x="175" y="70" width="150" height="40" class="process"/>
+    <text x="250" y="95">User Registers</text>
+
+    <!-- Send Welcome Email -->
+    <rect x="175" y="130" width="150" height="40" class="process"/>
+    <text x="250" y="155">Send Welcome Email</text>
+
+    <!-- User Logs In -->
+    <rect x="175" y="190" width="150" height="40" class="process"/>
+    <text x="250" y="215">User Logs In</text>
+
+    <!-- Send Login Confirmation Email -->
+    <rect x="175" y="250" width="150" height="40" class="process"/>
+    <text x="250" y="275">Send Login Email</text>
+
+    <!-- User Donates Food -->
+    <rect x="175" y="310" width="150" height="40" class="process"/>
+    <text x="250" y="335">User Donates Food</text>
+
+    <!-- Admin Reviews -->
+    <polygon points="175,370 250,410 325,370 250,330" class="decision"/>
+    <text x="250" y="360">Admin Reviews?</text>
+
+    <!-- Approved Path -->
+    <rect x="40" y="430" width="150" height="40" class="process"/>
+    <text x="115" y="455">Send Approval Email</text>
+
+    <!-- Rejected Path -->
+    <rect x="310" y="430" width="150" height="40" class="process"/>
+    <text x="385" y="455">Send Rejection Email</text>
+
+    <!-- Admin Assigns Delivery -->
+    <rect x="175" y="500" width="150" height="40" class="process"/>
+    <text x="250" y="525">Assign Delivery</text>
+
+    <!-- Delivery Person Logs In -->
+    <rect x="175" y="560" width="150" height="40" class="process"/>
+    <text x="250" y="585">Delivery Person Logs In</text>
+
+    <!-- Send Delivery Confirmation -->
+    <rect x="175" y="620" width="150" height="40" class="process"/>
+    <text x="250" y="645">Send Delivery Email</text>
+
+    <!-- Food Delivered -->
+    <rect x="175" y="680" width="150" height="40" class="process"/>
+    <text x="250" y="705">Food Delivered</text>
+
+    <!-- Stop -->
+    <rect x="175" y="750" width="150" height="40" class="startstop"/>
+    <text x="250" y="775">Stop</text>
+
+    <!-- Arrows -->
+    <line x1="250" y1="50" x2="250" y2="70" stroke="black" stroke-width="2"/>
+    <line x1="250" y1="110" x2="250" y2="130" stroke="black" stroke-width="2"/>
+    <line x1="250" y1="170" x2="250" y2="190" stroke="black" stroke-width="2"/>
+    <line x1="250" y1="230" x2="250" y2="250" stroke="black" stroke-width="2"/>
+    <line x1="250" y1="290" x2="250" y2="310" stroke="black" stroke-width="2"/>
+    <line x1="250" y1="350" x2="250" y2="370" stroke="black" stroke-width="2"/>
+    <line x1="250" y1="410" x2="125" y2="430" stroke="black" stroke-width="2"/>
+    <line x1="250" y1="410" x2="375" y2="430" stroke="black" stroke-width="2"/>
+    <line x1="250" y1="450" x2="250" y2="500" stroke="black" stroke-width="2"/>
+    <line x1="250" y1="540" x2="250" y2="560" stroke="black" stroke-width="2"/>
+    <line x1="250" y1="600" x2="250" y2="620" stroke="black" stroke-width="2"/>
+    <line x1="250" y1="660" x2="250" y2="680" stroke="black" stroke-width="2"/>
+    <line x1="250" y1="720" x2="250" y2="750" stroke="black" stroke-width="2"/>
+
+</svg>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+
+.leaderboard-container {
+    width: 100%;
+    max-width: 500px;
+    background: black;
+    padding: 15px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Top 3 Leaderboard */
+.topLeadersList {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 10px;
+}
+
+/* Leader Placement */
+.leader {
+    position: relative;
+    text-align: center;
+    margin: 10px;
+}
+
+.first {
+    transform: translateY(-20px);
+}
+.second, .third {
+    transform: translateY(10px);
+}
+
+/* User Image */
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+/* Crown */
+.crown {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+}
+
+.gold { color: gold; }
+.silver { color: silver; }
+.bronze { color: #cd7f32; }
+
+/* Table Headers */
+.table {
+    display: grid;
+    grid-template-columns: 0.4fr 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    background: #222;
+    color: white;
+    font-size: 14px;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+/* Player Rows */
+.player {
+    display: grid;
+    grid-template-columns: 0.4fr 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    padding: 5px;
+    color: white;
+    font-size: 14px;
+    background: purple;
+    margin: 3px 0;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.player:nth-child(odd) {
+    background: #a34abf;
+}
+
+/* User Avatar in List */
+.icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+/* Hover Effect */
+.player:hover {
+    background: #d16fff;
+}

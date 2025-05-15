@@ -1,0 +1,269 @@
+body {
+    font-family: "Raleway";
+    font-size: 14px;
+    font-weight: 500;
+    
+    background-color: lavender;
+}
+
+.title {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.heading{
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+p {
+    line-height: 1.5em;
+}
+
+h1+p,
+p+p {
+    margin-top: 10px;
+}
+
+.contents {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.container {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.card-wrap {
+    margin: 30px; /* Increase margin to add more space between cards */
+    transform: perspective(800px);
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.card-wrap:hover .card-info {
+    transform: translateY(0);
+}
+
+.card-wrap:hover .card-info p {
+    opacity: 1;
+}
+
+.card-wrap:hover .card-info,
+.card-wrap:hover .card-info p {
+    transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card-wrap:hover .card-info:after {
+    transition: 5s cubic-bezier(0.23, 1, 0.32, 1);
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-wrap:hover .card-bg {
+    transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 5s cubic-bezier(0.23, 1, 0.32, 1);
+    opacity: 0.8;
+}
+
+.card-wrap:hover .card {
+    transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 2s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: rgba(255, 255, 255, 0.2) 0 0 40px 5px, white 0 0 0 1px, rgba(0, 0, 0, 0.66) 0 30px 60px 0, inset #333 0 0 0 5px, inset white 0 0 0 6px;
+    transform: perspective(1000px) rotateY(10deg) rotateX(10deg); /* Adjust the rotation to remove blank space */
+}
+
+.card {
+    position: relative;
+    flex: 0 0 240px;
+    width: 240px;
+    height: 320px;
+    background-color: #333;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.66) 0 30px 60px 0, inset #333 0 0 0 5px, inset rgba(255, 255, 255, 0.5) 0 0 0 6px;
+    transition: 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg); /* Ensure the card maintains its 3D perspective */
+}
+
+.card-bg {
+    opacity: 0.5;
+    position: absolute;
+    top: -20px; /* Adjust top position to cover black space */
+    left: -20px; /* Adjust left position to cover black space */
+    width: calc(100% + 40px); /* Increase width to cover black space */
+    height: calc(100% + 40px); /* Increase height to cover black space */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; /* Ensure the image covers the entire card */
+    transition: 1s cubic-bezier(0.445, 0.05, 0.55, 0.95), opacity 5s 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    pointer-events: none;
+}
+
+.card-info {
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    transform: translateY(40%);
+    transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.card-info p {
+    opacity: 0;
+    text-shadow: black 0 2px 3px;
+    transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.card-info * {
+    position: relative;
+    z-index: 1;
+}
+
+.card-info:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
+    background-blend-mode: overlay;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: 5s 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.card-info h1 {
+    font-family: "Playfair Display";
+    font-size: 36px;
+    font-weight: 700;
+    text-shadow: rgba(0, 0, 0, 0.5) 0 10px 10px;
+}
+
+.para p {
+    font-size: 23px;
+    margin-left: 20px;
+    margin-right: 20px;
+    line-height: 1.6;
+    /* Adjust line height for better readability */
+    color: #333;
+    /* Set text color */
+    text-align: justify;
+    /* Justify text */
+}
+
+.card2{
+    font-size: 29px;
+    font-weight: bold;
+    text-align: center;
+    font-weight: 300px;
+    color: #ec6f1f;
+    margin-top: 50px;
+    
+}
+.card1 {
+    font-size: 29px;
+    font-weight: bold;
+    text-align: center;
+    font-weight: 300px;
+    color: white;
+    box-sizing: border-box;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 350px;
+}
+
+.card1:nth-child(1) {
+    background-color: #053542; /* Light red */
+}
+
+.card1:nth-child(2) {
+    background-color: #EC6F1F; /* Light blue */
+}
+
+.card1:nth-child(3) {
+    background-color: #529EEF; /* Light green */
+}
+
+.card1 h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.card1 p {
+    font-size: 16px;
+    color: white;
+}
+
+.image_header {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    font-weight: 300px;
+    color: rgb(15, 201, 238);
+    background-color: lightcyan;
+    box-sizing: border-box;
+    margin: 20px;
+    padding: 1px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 1200px;
+}
+
+.image_header img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.map {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+@media (max-width: 767px) {
+    .para p {
+        font-size: 16px;
+        /* margin-left: 10px; */
+    }
+
+    #pptslide {
+        height: 200px;
+        width: 300px;
+    }
+
+    #map {
+        height: 200px;
+        width: 300px;
+    }
+
+    #overview {
+        height: 200px;
+        width: 300px;
+    }
+
+    .title {
+        font-size: 28px;
+        margin: 10px;
+        text-align: center;
+        align-items: center;
+    }
+}
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You</title>
+    <link rel="stylesheet" href="thankyou.css" />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+  </head>
+  <body>
+    <div class="thank-you-container">
+      <div class="tick-symbol">✔</div>
+      <h1>Thank You for Your Donation!</h1>
+      <p>Your generosity helps us fight food wastage and hunger.</p>
+      <div class="quotes">
+        <p>"The food you waste could save a life."</p>
+        <p>"Every meal counts. Every donation matters."</p>
+        <p>"Waste less, feed more."</p>
+      </div>
+    </div>
+    <script>
+      // Confetti effect
+      confetti({
+        particleCount: 200,
+        spread: 200,
+        origin: { y: 0.6 },
+      });
+    </script>
+  </body>
+</html>
