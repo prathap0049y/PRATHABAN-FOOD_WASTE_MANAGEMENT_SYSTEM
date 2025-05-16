@@ -1,0 +1,398 @@
+
+ body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  nav {
+    position: relative;
+  }
+  
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+    width: 30px;  /* Set width for the icon */
+    height: 24px; /* Set height for the icon */
+    padding: 5px;
+  }
+  
+  .menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    margin: 6px 0;
+    background-color:white;
+    transition: 0.3s;
+    
+  }
+  
+  /* Initially hide the navigation links (from the top) */
+  .nav-links {
+    list-style-type: none; /* Removes the bullets */
+    display: flex;
+    flex-direction: column;
+    background-color: #4CAF50;
+    position: fixed;
+    top: -100%; /* Hide the menu initially off the top of the screen */
+    left: 0;
+    width: 25%;
+    height: 50%;
+    padding-top: 60px;
+    transition: top 0.3s; /* Transition for sliding effect */
+    z-index: 9;
+    
+  }
+  
+  .nav-links li {
+    padding: 10px 10px;
+    text-align: left;
+    
+  }
+  
+  .nav-links a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+  }
+  
+  /* Change the position to slide in from the top */
+  .nav-links.active {
+    top: 0; /* Slide the menu into view from the top */
+  }
+  
+  /* For smooth animation of the hamburger icon */
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(-45deg);
+    transform-origin: 10% 10%;
+  }
+  
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(45deg);
+    transform-origin: 10% 90%;
+  }
+  
+  /* Add this to make the icon position relative to the navigation bar */
+  nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  @media (max-width: 768px) {
+    nav {
+      position: fixed;
+      width: 100%;
+    }
+  }
+  
+  .hero {
+    text-align: center;
+    background: url('img-1.jpg') no-repeat center center/cover;
+    padding: 150px 80px;
+    color: white;
+  }
+  
+  .hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: black;
+  }
+  
+  .hero button {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .hero button:hover {
+    background-color: #e64a19;
+  }
+
+  .video {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+   
+  }
+  
+  video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .overlay-text {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  .overlay-text h1 {
+    margin: 0;
+    font-size: 2.5rem;
+  }
+  
+  .overlay-text p{
+    margin: 10px 0 0;
+    font-size: 1.2rem;
+  }
+
+  .hii{
+    text-align: center;
+    padding: 20px 20px;
+    height: auto;
+    color: black;
+  }
+  .hii h1{
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-family: fantasy;
+  }
+  .container {
+    display: flex;              
+    justify-content: space-around; 
+    align-items: flex-start;   
+    gap: 20px;                   
+    margin: 20px;               
+  }
+
+  .item {
+    text-align: center;         
+    width: 30%;                 
+  }
+
+  .item img {
+    width: 100%;                 
+    height: auto;                
+    border-radius: 8px;          
+  }
+
+  .item .text-box {
+    margin-top: 10px;            
+    background-color: #f4f4f4;  
+    padding: 10px;               
+    border: 1px solid #ccc;      
+    border-radius: 4px;          
+  }
+
+  .header {
+    margin: 20px 0;
+    text-align: center;
+  }
+   
+  .header h1 {
+    font-size: 1em;
+    margin: 0;
+    padding: 5px 10px;
+    background-color: purple;
+    color: white;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .header h2{
+    font-size: 2.5em;
+    font-weight: bold;
+  }
+
+  .header p {
+    font-size: 1.2em;
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .food{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 50px;
+  }
+  .box {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+  }
+  .box:hover {
+    transform: scale(1.05);
+  }
+
+  .icon {
+    width: 50px;
+    margin-bottom: 15px;
+  }
+
+  h2 {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: #555;
+    font-size: 1em;
+  }
+
+  .note {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive layout */
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto; /* Center the grid on the page */
+  }
+
+  .card {
+    background-color: #ffffff; /* Card background */
+    border: 1px solid #ddd; /* Border for the card */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effect */
+  }
+
+ .card:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  }
+
+ .card img {
+    width: 100%; /* Full-width image */
+    height: 200px;
+    object-fit: cover; /* Ensures proper cropping */
+    border-bottom: 1px solid #ddd;
+  }
+
+  .card h2 {
+    background-color: #6a0dad; /* Purple background for titles */
+    color: white;
+    margin: 0;
+    padding: 15px;
+    font-size: 1.5em;
+  }
+
+ .card p {
+    color: #555;
+    font-size: 1em;
+    margin: 10px 15px;
+    line-height: 1.5;
+  }
+
+ .card .address {
+    font-style: italic;
+    color: #777;
+  }
+
+ .card-footer {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    text-align: center;
+ }
+
+ .card-footer a {
+    text-decoration: none;
+    color: white;
+    background-color: #6a0dad;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+
+ .card-footer a:hover {
+    background-color: #4e0c83; /* Darker purple on hover */
+    transform: scale(1.05);
+  }
+
+
+ @media (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .card h2 {
+        font-size: 1.2em;
+    }
+
+    .card p {
+        font-size: 0.9em;
+    }
+  }
+
+  .book{
+    text-align: center;
+    background-color: #6a0dad; /* Purple header */
+    color: white;
+    padding: 15px 0;
+    margin: 0;
+    font-size: 2.5em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Header shadow */
+  }
+
+  
+  .footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1px 0;
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    z-index: 1000;
+  }
+
+  .footer.hidden {
+    transform: translateY(100%);
+    opacity: 0;
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.2);
+    
+  }
