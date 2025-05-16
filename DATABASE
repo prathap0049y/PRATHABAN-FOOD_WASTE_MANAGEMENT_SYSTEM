@@ -1,0 +1,172 @@
+** USER LOGIN TABLE **
+
+  CREATE TABLE `login` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `name` text NOT NULL,
+    `email` varchar(60) NOT NULL,
+    `password` text NOT NULL,
+    `gender` text NOT NULL,
+    `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+    `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+    `type` enum('donor', 'organization') NOT NULL DEFAULT 'donor',
+    `reset_token` varchar(255) DEFAULT NULL,
+    `reset_token_expiry` datetime DEFAULT NULL,
+    `phone` int(10) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB AUTO_INCREMENT = 8 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci
+
+  *------------------------------------------------------------------------------------------------*
+
+  ** ADMIN LOGIN TABLE **
+
+  CREATE TABLE `admin` (
+    `Aid` int(11) NOT NULL AUTO_INCREMENT,
+    `name` text NOT NULL,
+    `email` varchar(60) DEFAULT NULL,
+    `password` text NOT NULL,
+    `location` text NOT NULL,
+    `address` text NOT NULL,
+    `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+    PRIMARY KEY (`Aid`),
+    UNIQUE KEY `email` (`email`)
+) ENGINE = InnoDB AUTO_INCREMENT = 2 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci
+
+  *------------------------------------------------------------------------------------------------*
+
+  ** DELIVERY PERSON LOGIN **
+
+  CREATE TABLE `delivery_persons` (
+    `Did` int(11) NOT NULL AUTO_INCREMENT,
+    `name` varchar(255) NOT NULL,
+    `email` varchar(255) NOT NULL,
+    `password` varchar(255) NOT NULL,
+    `city` varchar(50) DEFAULT NULL,
+    `created_at` datetime DEFAULT current_timestamp(),
+    `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+    `phone` int(10) NOT NULL,
+    PRIMARY KEY (`Did`)
+) ENGINE = InnoDB AUTO_INCREMENT = 7 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci
+
+  *------------------------------------------------------------------------------------------------*
+  
+  ** FOOD DONATION TABLE **
+
+  CREATE TABLE `food_donations` (
+    `Fid` int(11) NOT NULL AUTO_INCREMENT,
+    `name` varchar(50) NOT NULL,
+    `email` varchar(60) NOT NULL,
+    `food` varchar(50) NOT NULL,
+    `type` text NOT NULL,
+    `category` text NOT NULL,
+    `quantity` text NOT NULL,
+    `date` datetime DEFAULT current_timestamp(),
+    `address` text NOT NULL,
+    `delivery_address` varchar(255) NOT NULL,
+    `location` varchar(50) NOT NULL,
+    `phoneno` varchar(25) NOT NULL,
+    `assigned_to` int(11) DEFAULT NULL,
+    `delivery_by` int(11) DEFAULT NULL,
+    `delivery_status` varchar(50) DEFAULT 'Pending',
+    `pickup_time` datetime DEFAULT NULL,
+    `expiry_time` datetime DEFAULT NULL,
+    `storage_condition` varchar(50) NOT NULL,
+    `notes` text DEFAULT NULL,
+    `agreement` tinyint(1) NOT NULL DEFAULT 0,
+    `food_image1` varchar(255) NOT NULL,
+    `food_image2` varchar(255) NOT NULL,
+    `food_image3` varchar(255) NOT NULL,
+    `status` enum(
+        'Fresh',
+        'Near Expiry',
+        'Expired'
+    ) DEFAULT 'Fresh',
+    PRIMARY KEY (`Fid`)
+) ENGINE = InnoDB AUTO_INCREMENT = 62 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci
+
+  *------------------------------------------------------------------------------------------------*
+  
+  ** FOOD REQUEST TABLE **
+
+  CREATE TABLE `food_request` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `name` varchar(255) NOT NULL,
+    `email` varchar(255) NOT NULL,
+    `phone` varchar(20) NOT NULL,
+    `food` text NOT NULL,
+    `quantity` int(11) NOT NULL,
+    `pickup` text NOT NULL,
+    `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+    `status` enum(
+        'pending',
+        'accepted',
+        'rejected'
+    ) DEFAULT 'pending',
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB AUTO_INCREMENT = 6 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci
+
+  *------------------------------------------------------------------------------------------------*
+  
+  ** NOTIFICATION TABLE **
+
+  CREATE TABLE `notifications` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `message` varchar(255) NOT NULL,
+    `type` enum('donation', 'request') NOT NULL,
+    `status` enum('unread', 'read') DEFAULT 'unread',
+    `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB AUTO_INCREMENT = 17 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci
+
+  *------------------------------------------------------------------------------------------------*
+  
+  ** ORGANIZATION TABLE **
+
+  CREATE TABLE `organizations` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `organization_name` varchar(255) NOT NULL,
+    `owner_name` varchar(255) NOT NULL,
+    `org_id` varchar(255) NOT NULL,
+    `state` varchar(100) NOT NULL,
+    `district` varchar(100) NOT NULL,
+    `city` varchar(100) NOT NULL,
+    `street` varchar(255) NOT NULL,
+    `pincode` varchar(20) NOT NULL,
+    `phone_no` varchar(20) NOT NULL,
+    `email` varchar(255) NOT NULL,
+    `password` varchar(255) NOT NULL,
+    `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `org_id` (`org_id`),
+    UNIQUE KEY `email` (`email`)
+) ENGINE = InnoDB AUTO_INCREMENT = 4 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci
+
+  *------------------------------------------------------------------------------------------------*
+  
+  ** USER FEEDBACK TABLE  **
+
+  CREATE TABLE `user_feedback` (
+    `feedback_id` int(11) NOT NULL,
+    `name` varchar(255) DEFAULT NULL,
+    `email` varchar(255) DEFAULT NULL,
+    `message` text DEFAULT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci
+
+  *------------------------------------------------------------------------------------------------*
+  
+  ** DELIVERY ADDRESS TABLE **
+
+  CREATE TABLE `delivery_addresses` (
+    `name` varchar(255) NOT NULL,
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `address` varchar(255) NOT NULL,
+    `delivery_address` varchar(255) NOT NULL,
+    `city` varchar(100) DEFAULT NULL,
+    `state` varchar(100) DEFAULT NULL,
+    `postal_code` varchar(20) DEFAULT NULL,
+    `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB AUTO_INCREMENT = 4 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci
+  
+  *------------------------------------------------------------------------------------------------*
+  
+  
