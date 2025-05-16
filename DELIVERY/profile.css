@@ -1,0 +1,123 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.profile-container h2 {
+    color: #06C167;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.profile-container p {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.profile-container p strong {
+    color: #06C167;
+}
+
+.profile-container .profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-container .profile-info img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-container .profile-info p {
+    margin: 5px 0;
+}
+
+.profile-container .profile-details {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+}
+
+.profile-container .profile-details p {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.profile-container .profile-details p strong {
+    color: #06C167;
+}
+
+.profile-container .edit-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #06C167;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.profile-container .edit-btn:hover {
+    background-color: #04a357;
+}
+
+.profile-container .update-message {
+    color: green;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.profile-container .profile-details label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.profile-container .profile-details input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+@media (max-width: 767px) {
+    .profile-container {
+        padding: 20px;
+    }
+
+    .profile-container h2 {
+        font-size: 20px;
+    }
+
+    .profile-container p {
+        font-size: 16px;
+    }
+
+    .profile-container .profile-details p {
+        font-size: 16px;
+    }
+}
