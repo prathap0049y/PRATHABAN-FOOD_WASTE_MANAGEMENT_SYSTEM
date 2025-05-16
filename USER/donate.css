@@ -1,0 +1,639 @@
+/* General Styles */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #333;
+  position: relative;
+  overflow: auto; /* Allow scrolling */
+}
+
+/* Scrolling Background Animation */
+@keyframes scrollBg {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-330px);
+  }
+}
+
+.scroll-bg {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-bottom: 330px;
+  background-color: #e8ba9b;
+  background-image: url("https://andreivictor.ro/codepen/scroll-bg-animation-pinterest/bg_pasta_grid-3f880df3.jpg");
+  background-size: cover;
+  animation: scrollBg 35s linear infinite; /* Add infinite loop */
+  z-index: -1; /* Ensure it stays behind the form */
+  will-change: transform; /* Optimize for smooth animation */
+}
+.scroll-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Dark overlay */
+  z-index: 0;
+}
+
+/* Background and Overlay */
+.background {
+  background-image: url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"); /* Food donation-related image */
+  background-size: cover;
+  background-position: center center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: ease-in-out all 2s;
+  transform: rotate(0deg);
+  z-index: -1; /* Move behind the form */
+}
+
+body:hover .background {
+  transform: rotate(2deg); /* Subtle rotation on hover */
+}
+
+.background > .overlay {
+  background: rgba(10, 45, 20, 0.75); /* Dark green overlay */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: ease-in-out all 2s;
+}
+
+body:hover .background > .overlay {
+  background: rgba(10, 65, 20, 0.75); /* Slightly lighter green on hover */
+}
+
+/* Form Container */
+.container {
+  background: radial-gradient(circle, #f4c2c2, #add8e6, #e6e6fa);
+  background-size: 200% 200%;
+  background-position: 0% 0%; /* Ensure proper animation start */
+
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+
+  backdrop-filter: blur(15px); /* Glass effect */
+  -webkit-backdrop-filter: blur(15px); /* For Safari support */
+  border-radius: 10px; /* Rounded corners */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Light border */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Darker shadow */
+  padding: 50px; /* Padding inside the container */
+  width: 100%;
+  max-width: 600px; /* Maximum width */
+  position: relative;
+  z-index: 1; /* Ensure it's above the background */
+  margin: 20px auto; /* Center the container */
+  font-size: 20px; /* Font size */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  color: #fff; /* Light text color */
+  animation: moveGradient 8s ease-in-out infinite; /* Corrected animation reference */
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+h2 {
+  text-align: center;
+  color: #ff6f61;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  animation: slideDown 0.8s ease-in-out;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Add gap between form elements */
+  width: 100%; /* Ensure form takes full width of container */
+  max-width: 100%; /* Ensure form does not exceed container width */
+  align-items: stretch; /* Ensure form elements stretch to full width */
+  padding: 0 20px; /* Add padding to the form */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Space between label and input */
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: black; /* Light text color */
+}
+
+input,
+select,
+textarea {
+  padding: 1rem; /* Increase padding for form elements */
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+  border-radius: 10px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+  color: black; /* Light text color */
+  transition: all 0.3s ease;
+  width: 100%; /* Ensure input elements take full width */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #ff6f61;
+  outline: none;
+  background: rgba(255, 255, 255, 0.2); /* Slightly lighter on focus */
+  box-shadow: 0 0 10px rgba(255, 111, 97, 0.3);
+}
+
+@keyframes labelFocus {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10px);
+    opacity: 0.8;
+  }
+}
+
+@keyframes labelMove {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+input:focus + label,
+select:focus + label,
+textarea:focus + label {
+  color: #ff6f61; /* Change label color on input focus */
+  animation: labelFocus 0.3s ease forwards, labelMove 0.3s ease forwards; /* Add slight moving animation */
+}
+
+input[type="file"] {
+  padding: 0.5rem;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  gap: 0.5rem; /* Add gap between checkbox and label */
+}
+
+.checkbox input {
+  margin-right: 0.5rem;
+}
+
+.checkbox label {
+  color: #fff; /* Light text color */
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  gap: 1rem; /* Space between buttons */
+  margin-top: 1.5rem;
+}
+
+/* Submit Button */
+/* Animated Button Styles */
+.btn {
+  display: block;
+  position: relative;
+  width: 200px;
+  height: 50px;
+  transition: width 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+    height 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+  transform-origin: 50% 50%;
+  text-align: center;
+}
+
+.btn-front {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none; /* Remove border */
+  border-radius: 10px; /* Rounded corners */
+  line-height: 50px; /* Adjusted line height */
+  background-color: #f44336; /* Light red background */
+  color: white; /* White text */
+  cursor: pointer;
+  backface-visibility: hidden;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.btn-front:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.btn.is-open .btn-front {
+  pointer-events: none;
+  line-height: 160px;
+}
+
+.btn-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #eee;
+  color: #222;
+  transform: translateZ(-2px) rotateX(180deg) rotatey(0deg);
+
+  overflow: hidden;
+  transition: box-shadow 0.8s ease;
+}
+
+.btn-back p {
+  margin-top: 27px;
+  margin-bottom: 25px;
+}
+
+.btn-back button {
+  padding: 12px 20px;
+  width: 30%;
+  margin: 0 5px;
+  background-color: transparent;
+  border: 0;
+  border-radius: 2px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn-back button:focus {
+  outline: 0;
+}
+
+.btn-back button.yes {
+  background-color: #2196f3;
+  color: #fff;
+}
+
+.btn-back button.yes:hover {
+  background-color: lighten(#2196f3, 10%);
+}
+
+.btn-back button.no {
+  color: white; /* White text */
+  background-color: #f44336; /* Red background */
+  padding: 15px 20px; /* Padding */
+  border: none; /* Remove border */
+  border-radius: 10px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1rem; /* Font size */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.btn-back button.no:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+}
+
+.btn.is-open .btn-back {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.btn.is-open {
+  width: 400px;
+  height: 160px;
+}
+
+.btn[data-direction="top"].is-open {
+  transform: rotateX(-180deg);
+}
+
+.btn[data-direction="right"].is-open {
+  transform: rotateY(-180deg);
+}
+
+.btn[data-direction="bottom"].is-open {
+  transform: rotateX(180deg);
+}
+
+.btn[data-direction="left"].is-open {
+  transform: rotateY(180deg);
+}
+
+.btn.rotate-left {
+  transform: rotateY(-180deg);
+}
+
+.btn.rotate-right {
+  transform: rotateY(180deg);
+}
+
+.btn.rotate-top {
+  transform: rotateX(-180deg);
+}
+
+.btn.rotate-bottom {
+  transform: rotateX(180deg);
+}
+
+.warning {
+  text-align: center;
+  color: #ff4a3d;
+  font-size: 0.9rem;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: rgba(
+    255,
+    235,
+    238,
+    0.8
+  ); /* Light red background with transparency */
+  border-radius: 10px;
+  border: 1px solid rgba(255, 205, 210, 0.5);
+  animation: fadeIn 1.5s ease-in-out, pulse 2s infinite;
+}
+
+/* Clear Message */
+.clear-message {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #ff4a3d;
+  font-size: 1rem;
+  padding: 1rem;
+  background-color: rgba(
+    255,
+    235,
+    238,
+    0.8
+  ); /* Light red background with transparency */
+  border-radius: 10px;
+  border: 1px solid rgba(255, 205, 210, 0.5);
+  animation: popup 0.5s ease-in-out, fadeOut 4.5s ease-in-out 0.5s;
+  z-index: 1001; /* Ensure it is above other elements */
+}
+
+/* Popup Animation */
+@keyframes popup {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Fade Out Animation */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Donate Food Button */
+.submit-btn {
+  background-color: #4caf50; /* Green background */
+  color: white; /* White text */
+  padding: 15px 20px; /* Padding */
+  border: none; /* Remove border */
+  border-radius: 10px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1rem; /* Font size */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.submit-btn:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+/* Add link to thank you page */
+.submit-btn:active {
+  background-color: #388e3c; /* Even darker green on click */
+  transform: translateY(2px); /* Slightly move down on click */
+}
+
+.donate {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  text-align: center;
+}
+
+.donate form {
+  position: relative;
+  width: 100%;
+}
+
+.donate input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #4caf50;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  outline: none;
+}
+
+.donate button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.donate button:hover {
+  background-color: #45a049;
+}
+
+.donate.open input {
+  border-color: #ff9800;
+}
+
+.donate.submit {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Hide donate button during flip animation */
+.donate.hidden {
+  display: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Style for the Upload Food Images Button */
+#openmodal {
+  background-color: lavender; /* Green background */
+  color: black; /* White text */
+  padding: 15px 20px; /* Padding */
+  border: none; /* Remove border */
+  border-radius: 10px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1rem; /* Font size */
+  font-weight: 600; /* Bold text */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+  width: 100%; /* Full width */
+  margin-top: 1rem; /* Add some space above the button */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+#openmodal:hover {
+  background-color: hotpink; /* Darker green on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+#openmodal:active {
+  transform: translateY(0); /* Reset lift on click */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Reset shadow on click */
+}
+
+/* Style for the Modal */
+.modal-content {
+  background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Light border */
+  border-radius: 10px; /* Rounded corners */
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Darker shadow */
+  color: #fff; /* Light text color */
+}
+
+.modal-content h3 {
+  margin-bottom: 1.5rem;
+  color: #fff; /* Light text color */
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #fff; /* Light text color */
+}
+
+.modal-content input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+  border-radius: 10px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+  color: #fff; /* Light text color */
+  transition: all 0.3s ease;
+}
+
+.modal-content input[type="file"]:focus {
+  border-color: #ff6f61;
+  outline: none;
+  background: rgba(255, 255, 255, 0.2); /* Slightly lighter on focus */
+  box-shadow: 0 0 10px rgba(255, 111, 97, 0.3);
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  animation: logoAnimation 2s infinite; /* Add animation */
+  position: relative; /* For the underline */
+}
+
+/* Define the logo animation */
+@keyframes logoAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

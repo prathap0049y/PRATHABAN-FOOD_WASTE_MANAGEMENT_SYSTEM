@@ -1,0 +1,116 @@
+.prathap-container {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+h2 {
+    font-size: 36px;
+    color: #0b468a;
+    margin-bottom: 10px;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 220px;
+    height: 4px;
+    background-color: #3cb371;
+    margin: 8px auto;
+    border-radius: 5px;
+}
+
+.subheading {
+    font-weight: bold;
+    color: #0b468a;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* Flexbox Container */
+.prathap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px 0;
+    padding: 15px;
+}
+
+/* Box Styling - Blue Background */
+.box {
+    font-weight: bold;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    min-width: 240px;
+    position: relative;
+    transition: 0.3s ease-in-out;
+    color: white;
+    background-color: #0b468a; /* Keep blue background */
+    border-radius: 4px;
+    animation: fadeIn 1s ease-in-out; /* Add animation */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+.box:hover {
+    background-color: #3cb371; /* Change background color on hover */
+    transform: translateY(-5px); /* Slightly lift the box on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slant Effect - Blue Boxes */
+.box-right {
+    clip-path: polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.box-left {
+    clip-path: polygon(0% 0%, 88% 0%, 100% 100%, 0% 100%);
+}
+
+.box .icon {
+    font-size: 22px;
+    margin-right: 10px;
+}
+
+.text {
+    color: #0b468a;
+    font-size: 18px;
+    font-weight: bold;
+    animation: blink 1.5s infinite; /* Add blink animation */
+ }
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Remove Background Inside Card */
+.description {
+    color: #5a6b7b;
+    font-size: 16px;
+    max-width: 700px;
+    margin: 30px auto;
+    text-align: left;
+    line-height: 1.6;
+    border-radius: 8px;
+}
+
+.reverse {
+    flex-direction: row-reverse;
+}
